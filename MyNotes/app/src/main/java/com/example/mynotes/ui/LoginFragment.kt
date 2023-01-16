@@ -7,9 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.os.bundleOf
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.mynotes.R
+import com.example.mynotes.databinding.FragmentLoginBinding
+import com.example.mynotes.models.UserRequest
+import com.example.mynotes.utils.NetworkResult
+import com.example.mynotes.viewmodels.AuthViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,57 +28,74 @@ private const val ARG_PARAM2 = "param2"
  * Use the [LoginFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding:FragmentLoginBinding? = null
+    private val binding get() = _binding!!
+
+    private val authViewModel by activityViewModels<AuthViewModel>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-       var view = inflater.inflate(R.layout.fragment_login, container, false)
-        view.findViewById<Button>(R.id.loginButton).setOnClickListener {
-            onLoginClicked()
+        _binding= FragmentLoginBinding.inflate(inflater, container, false)
+       return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        handleEvents()
+        bindObservers()
+    }
+
+    fun handleEvents()
+    {
+        binding.loginButton.setOnClickListener {
+            var result = validateUserInput()
+            if(result.first){
+                val userRequest = UserRequest(binding.email.toString(), binding.password.toString(),"")
+                authViewModel.loginUser(userRequest)
+            }else{
+                Toast.makeText(context,result.second,Toast.LENGTH_LONG).show()
+            }
         }
-        view.findViewById<TextView>(R.id.btn_sign_up).setOnClickListener {
+        binding.btnSignUp.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registrationFragment)
         }
-       return view
+    }
+
+    fun bindObservers(){
+        authViewModel.userResponseLiveData.observe(viewLifecycleOwner) {
+            when (it) {
+                is NetworkResult.Success -> {
+                    var bundle = bundleOf("amount" to "test")
+                    findNavController().navigate(
+                        R.id.action_loginFragment_to_notesHomeFragment,
+                        bundle
+                    );
+                }
+                is NetworkResult.Error -> {
+                    Toast.makeText(this.context, "Error", Toast.LENGTH_LONG).show()
+                }
+                is NetworkResult.Loading -> {
+
+                }
+            }
+        }
     }
 
     fun onLoginClicked()
     {
-        var bundle = bundleOf("amount" to "test")
-        findNavController().navigate(R.id.action_loginFragment_to_notesHomeFragment, bundle);
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LoginFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LoginFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    fun validateUserInput():Pair<Boolean, String> {
+        var email = binding.email.text.toString()
+        var password = binding.password.text.toString()
+        return authViewModel.validateLoginCredentials(email,password)
     }
 }

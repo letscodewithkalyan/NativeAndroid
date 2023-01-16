@@ -1,14 +1,16 @@
 package com.example.mynotes.api
 
 import com.example.mynotes.models.UserRequest
+import com.example.mynotes.models.UserResponse
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface UserAPI {
 
-    @POST("/users/signup")
-    suspend fun signup(@Body userRequest: UserRequest)
+    @POST("/login ")
+    suspend fun signup(@Body userRequest: UserRequest) : Response<UserResponse>
 
-    @POST("/users/signin")
-    suspend fun signin(@Body userRequest: UserRequest)
+    @POST("/login")
+    suspend fun signin(@Body userRequest: UserRequest) : Response<UserResponse>
 }

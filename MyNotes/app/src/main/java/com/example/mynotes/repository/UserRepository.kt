@@ -20,13 +20,14 @@ class UserRepository @Inject constructor(private val userAPI: UserAPI) {
 
     suspend fun registerUser(userRequest: UserRequest){
         _userResponseLiveData.postValue(NetworkResult.Loading())
-        val response = userAPI.signup(userRequest);
+        val response = userAPI.signup(userRequest)
+        handleReponse(response)
     }
 
     suspend fun loginUser(userRequest: UserRequest){
         _userResponseLiveData.postValue(NetworkResult.Loading())
-        val reponse = userAPI.signin(userRequest);
-
+        val response = userAPI.signin(userRequest);
+        handleReponse(response)
     }
 
     private fun handleReponse(response: Response<UserResponse>){

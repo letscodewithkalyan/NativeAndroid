@@ -12,10 +12,10 @@ import retrofit2.http.Path
 
 interface NoteAPI {
 
-    @POST("/note")
+    @POST("/json1")
     suspend fun createNote(@Body noteRequest: NoteRequest)
 
-    @GET("/note")
+    @GET("/json1")
     suspend fun getNotes(): Response<List<NoteResponse>>
 
     @DELETE("/note/{noteId}")
