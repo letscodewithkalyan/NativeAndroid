@@ -15,8 +15,10 @@ import com.example.mynotes.R
 import com.example.mynotes.databinding.FragmentLoginBinding
 import com.example.mynotes.models.UserRequest
 import com.example.mynotes.utils.NetworkResult
+import com.example.mynotes.utils.TokenManager
 import com.example.mynotes.viewmodels.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,6 +38,8 @@ class LoginFragment : Fragment() {
 
     private val authViewModel by activityViewModels<AuthViewModel>()
 
+    @Inject
+    lateinit var tokenManager: TokenManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -72,6 +76,7 @@ class LoginFragment : Fragment() {
         authViewModel.userResponseLiveData.observe(viewLifecycleOwner) {
             when (it) {
                 is NetworkResult.Success -> {
+                    tokenManager.saveToken(it.data!!.token)
                     var bundle = bundleOf("amount" to "test")
                     findNavController().navigate(
                         R.id.action_loginFragment_to_notesHomeFragment,
