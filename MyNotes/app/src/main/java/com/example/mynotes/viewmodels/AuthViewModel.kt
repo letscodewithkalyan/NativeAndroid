@@ -1,5 +1,7 @@
 package com.example.mynotes.viewmodels
 
+import android.content.Intent
+import android.provider.MediaStore
 import android.text.TextUtils
 import android.util.Patterns
 import androidx.lifecycle.LiveData
@@ -42,5 +44,6 @@ class AuthViewModel @Inject constructor(private val userRepository: UserReposito
         }
         return result;
     }
+
 
 }

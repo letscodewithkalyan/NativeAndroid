@@ -1,4 +1,4 @@
-package com.example.mynotes.api
+package com.example.mynotes.repository.api
 
 import com.example.mynotes.models.UserRequest
 import com.example.mynotes.models.UserResponse

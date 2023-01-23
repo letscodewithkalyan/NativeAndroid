@@ -1,8 +1,8 @@
 package com.example.mynotes.di
 
-import com.example.mynotes.api.AuthInterceptor
-import com.example.mynotes.api.NoteAPI
-import com.example.mynotes.api.UserAPI
+import com.example.mynotes.repository.api.AuthInterceptor
+import com.example.mynotes.repository.api.NoteAPI
+import com.example.mynotes.repository.api.UserAPI
 import com.example.mynotes.utils.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides

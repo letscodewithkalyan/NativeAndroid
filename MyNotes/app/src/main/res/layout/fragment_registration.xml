@@ -12,6 +12,30 @@
         android:orientation="vertical"
         android:layout_marginHorizontal="30dp"
         android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_edit"
+                android:id="@+id/pencil_icon"
+                android:layout_gravity="end"
+                android:scaleType="centerCrop"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    app:cardCornerRadius="75dp"
+                    android:layout_gravity="center">
+                    <ImageView
+                        android:id="@+id/user_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_defaultuser"
+                        android:scaleType="centerCrop"/>
+                </androidx.cardview.widget.CardView>
+        </FrameLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"

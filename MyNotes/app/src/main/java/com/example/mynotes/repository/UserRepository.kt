@@ -4,7 +4,7 @@ import android.net.NetworkRequest
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.mynotes.api.UserAPI
+import com.example.mynotes.repository.api.UserAPI
 import com.example.mynotes.models.UserRequest
 import com.example.mynotes.models.UserResponse
 import com.example.mynotes.utils.NetworkResult
