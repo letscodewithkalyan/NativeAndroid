@@ -50,6 +50,9 @@ class NotesHomeFragment : Fragment() {
         binding.compassNavigateButton.setOnClickListener{
             findNavController().navigate(R.id.action_notesHomeFragment_to_compassFragment)
         }
+        binding.languageButton.setOnClickListener{
+            findNavController().navigate(R.id.action_notesHomeFragment_to_languageFragment)
+        }
     }
 
     fun bindObservers(){

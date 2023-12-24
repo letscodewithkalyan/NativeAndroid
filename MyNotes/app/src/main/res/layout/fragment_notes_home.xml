@@ -19,6 +19,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Compass"
-        style="@style/Widget.MaterialComponents.Button"
-        />
+        style="@style/Widget.MaterialComponents.Button"/>
+
+    <Button
+        android:id="@+id/languageButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Language"
+        style="@style/Widget.MaterialComponents.Button"/>
 </LinearLayout>

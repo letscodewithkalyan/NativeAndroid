@@ -32,10 +32,18 @@
         <action
             android:id="@+id/action_notesHomeFragment_to_compassFragment"
             app:destination="@id/compassFragment"/>
+        <action
+            android:id="@+id/action_notesHomeFragment_to_languageFragment"
+            app:destination="@id/languageFragment"/>
     </fragment>
     <fragment
         android:id="@+id/compassFragment"
         android:name="com.example.mynotes.ui.CompassFragment"
         android:label="fragment_compass"
         tools:layout="@layout/fragment_compass"/>
+    <fragment
+        android:id="@+id/languageFragment"
+        android:name="com.example.mynotes.ui.LanguageFragment"
+        android:label="fragment_language"
+        tools:layout="@layout/fragment_language"/>
 </navigation>

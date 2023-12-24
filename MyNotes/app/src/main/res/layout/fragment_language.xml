@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.LanguageFragment">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select the language"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:layout_above="@id/languageGroup"/>
+    <RadioGroup
+        android:id="@+id/languageGroup"
+        android:paddingHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+        <RadioButton
+            android:id="@+id/englishButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="English"/>
+        <RadioButton
+            android:id="@+id/arabicButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Arabic"/>
+        <RadioButton
+            android:id="@+id/frenchButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="French"/>
+    </RadioGroup>
+</RelativeLayout>
