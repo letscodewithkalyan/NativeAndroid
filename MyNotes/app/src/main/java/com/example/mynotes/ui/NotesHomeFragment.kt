@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mynotes.R
 import com.example.mynotes.adapters.NoteAdapter
@@ -15,14 +16,10 @@ import com.example.mynotes.models.NoteResponse
 import com.example.mynotes.utils.NetworkResult
 import com.example.mynotes.viewmodels.NotesViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+
 
 /**
  * A simple [Fragment] subclass.
- * Use the [NotesHomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
 class NotesHomeFragment : Fragment() {
@@ -50,6 +47,9 @@ class NotesHomeFragment : Fragment() {
         notesViewModel.getAllNotes()
         binding.notesList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
         binding.notesList.adapter = adapter
+        binding.compassNavigateButton.setOnClickListener{
+            findNavController().navigate(R.id.action_notesHomeFragment_to_compassFragment)
+        }
     }
 
     fun bindObservers(){
@@ -71,7 +71,6 @@ class NotesHomeFragment : Fragment() {
     }
 
     private fun onNoteClicked(noteResponse: NoteResponse){
-
     }
 
 }

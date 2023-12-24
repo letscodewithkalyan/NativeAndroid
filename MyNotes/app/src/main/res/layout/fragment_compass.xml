@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".ui.CompassFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/favorite"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="Compass"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/share"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/angleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:padding="10dp"
+        android:layout_above="@id/compassImage"/>
+    <com.example.mynotes.components.CompassRotateView
+        android:id="@+id/compassImage"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        android:padding="10dp"
+        android:src="@drawable/compasstransperent"/>
+    <TextView
+        android:id="@+id/magneticTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@id/compassImage"
+        android:paddingStart="20dp"
+        android:paddingBottom="10dp"
+        android:text="Test"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="15sp"/>
+
+</RelativeLayout>

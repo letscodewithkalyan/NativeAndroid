@@ -28,5 +28,14 @@
         android:id="@+id/notesHomeFragment"
         android:name="com.example.mynotes.ui.NotesHomeFragment"
         android:label="fragment_notes_home"
-        tools:layout="@layout/fragment_notes_home" />
+        tools:layout="@layout/fragment_notes_home">
+        <action
+            android:id="@+id/action_notesHomeFragment_to_compassFragment"
+            app:destination="@id/compassFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/compassFragment"
+        android:name="com.example.mynotes.ui.CompassFragment"
+        android:label="fragment_compass"
+        tools:layout="@layout/fragment_compass"/>
 </navigation>

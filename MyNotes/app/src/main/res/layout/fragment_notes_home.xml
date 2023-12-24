@@ -3,13 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.NotesHomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notesList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         tools:listitem="@layout/item_note"/>
 
+    <Button
+        android:id="@+id/compassNavigateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Compass"
+        style="@style/Widget.MaterialComponents.Button"
+        />
 </LinearLayout>
