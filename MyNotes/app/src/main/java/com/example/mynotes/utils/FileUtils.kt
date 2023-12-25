@@ -1,15 +1,21 @@
 package com.example.mynotes.utils
 
 import android.content.Context
+import android.content.SharedPreferences
+import android.content.res.Configuration
+import android.media.audiofx.DynamicsProcessing.Config
 import android.net.Uri
 import android.os.Environment
 import androidx.core.content.FileProvider
 import com.example.mynotes.R
+import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
+import javax.inject.Inject
 
 object FileUtils {
+
     /**
      * Get Current Time in yyyyMMdd HHmmssSSS format
      *
@@ -60,4 +66,13 @@ object FileUtils {
         return File(dir, "Camera")
     }
 
+    fun getLocalConfig(context: Context) : Configuration {
+        var preferences = context.getSharedPreferences(Constants.SHARED_PREFS,Context.MODE_PRIVATE)
+        var selectedLang = preferences.getString(Constants.USER_LANGUAGE, "")
+        selectedLang = if(selectedLang.isNullOrEmpty()) "en" else  selectedLang
+        var config = context.resources.configuration
+        config.setLocale(Locale(selectedLang))
+        config.setTo(config)
+        return config
+    }
 }

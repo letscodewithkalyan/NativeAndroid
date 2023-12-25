@@ -16,7 +16,7 @@
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
-            android:hint="Email"
+            android:hint="@string/email"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email"
@@ -27,7 +27,7 @@
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
-            android:hint="Password"
+            android:hint="@string/password"
             android:layout_marginTop="20dp"
             app:endIconMode="password_toggle"
             android:layout_height="wrap_content">
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.Button"
-            android:text="Login"
+            android:text="@string/login"
             android:layout_marginTop="20dp"/>
 
         <TextView

@@ -6,7 +6,9 @@ import com.example.mynotes.utils.Constants.PREFS_TOKEN_FILE
 import com.example.mynotes.utils.Constants.USER_TOKEN
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class TokenManager @Inject constructor(@ApplicationContext context: Context)  {
     private var prefs: SharedPreferences = context.getSharedPreferences(PREFS_TOKEN_FILE, Context.MODE_PRIVATE)
 
