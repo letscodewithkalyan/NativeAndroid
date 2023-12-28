@@ -10,7 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mynotes.R
-import com.example.mynotes.adapters.NoteAdapter
+import com.example.mynotes.ui.adapters.NoteAdapter
 import com.example.mynotes.databinding.FragmentNotesHomeBinding
 import com.example.mynotes.models.NoteResponse
 import com.example.mynotes.utils.NetworkResult

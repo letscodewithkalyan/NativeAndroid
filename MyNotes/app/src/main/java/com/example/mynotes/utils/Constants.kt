@@ -8,6 +8,8 @@ object Constants {
     const val SHARED_PREFS = "shared_prefs"
     const val BASE_URL = "http://demo5147872.mockable.io/"
 
+    const val POKE_URL = "https://pokeapi.co/api/v2/pokemon"
+
     //Languages
     const val ENGLISH = "en"
     const val ARABIC = "ar"

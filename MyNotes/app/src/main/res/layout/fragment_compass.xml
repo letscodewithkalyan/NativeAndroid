@@ -42,7 +42,7 @@
         android:textSize="30sp"
         android:padding="10dp"
         android:layout_above="@id/compassImage"/>
-    <com.example.mynotes.components.CompassRotateView
+    <com.example.mynotes.ui.components.CompassRotateView
         android:id="@+id/compassImage"
         android:layout_width="match_parent"
         android:layout_height="300dp"

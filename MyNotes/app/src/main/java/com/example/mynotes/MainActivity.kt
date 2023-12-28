@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     //Faced issues with the DI of prefences into get config
     //Before base.Oncreate preferences not created.
     @Inject lateinit var preferences: Preferences
+
     override fun onCreate(savedInstanceState: Bundle?){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             createConfigurationContext(FileUtils.getLocalConfig(this))

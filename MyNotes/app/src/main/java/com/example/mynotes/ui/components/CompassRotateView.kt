@@ -1,4 +1,4 @@
-package com.example.mynotes.components
+package com.example.mynotes.ui.components
 
 import android.content.Context
 import android.graphics.Canvas
