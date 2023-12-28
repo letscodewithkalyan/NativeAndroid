@@ -53,6 +53,9 @@ class NotesHomeFragment : Fragment() {
         binding.languageButton.setOnClickListener{
             findNavController().navigate(R.id.action_notesHomeFragment_to_languageFragment)
         }
+        binding.pokeManButton.setOnClickListener{
+            findNavController().navigate(R.id.action_notesHomeFragment_to_pokeManFragment)
+        }
     }
 
     fun bindObservers(){

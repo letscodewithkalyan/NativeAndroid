@@ -35,6 +35,9 @@
         <action
             android:id="@+id/action_notesHomeFragment_to_languageFragment"
             app:destination="@id/languageFragment"/>
+        <action
+            android:id="@+id/action_notesHomeFragment_to_pokeManFragment"
+            app:destination="@id/pokeManFragment"/>
     </fragment>
     <fragment
         android:id="@+id/compassFragment"
@@ -46,4 +49,9 @@
         android:name="com.example.mynotes.ui.LanguageFragment"
         android:label="fragment_language"
         tools:layout="@layout/fragment_language"/>
+    <fragment
+        android:id="@+id/pokeManFragment"
+        android:name="com.example.mynotes.ui.PokeManFragment"
+        android:label="fragment_poke_man"
+        tools:layout="@layout/fragment_poke_man"/>
 </navigation>
