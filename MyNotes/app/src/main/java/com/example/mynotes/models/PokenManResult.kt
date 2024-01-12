@@ -7,3 +7,5 @@ data class PokeManResult(  val count: Long,
 
 data class PokeURL(val name: String,
                    val url: String,)
+
+

@@ -72,6 +72,10 @@ class NotesHomeFragment : Fragment() {
                 is NetworkResult.Loading -> {
 
                 }
+
+                else -> {
+
+                }
             }
         }
     }
