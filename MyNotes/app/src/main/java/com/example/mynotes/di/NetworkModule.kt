@@ -2,6 +2,7 @@ package com.example.mynotes.di
 
 import com.example.mynotes.repository.api.AuthInterceptor
 import com.example.mynotes.repository.api.NoteAPI
+import com.example.mynotes.repository.api.PokeAPI
 import com.example.mynotes.repository.api.UserAPI
 import com.example.mynotes.utils.Constants.BASE_URL
 import dagger.Module
@@ -41,5 +42,11 @@ class NetworkModule {
     @Provides
     fun providesNoteAPI(retrofitBuilder: Retrofit.Builder, okHttpClient: OkHttpClient): NoteAPI {
         return retrofitBuilder.client(okHttpClient).build().create(NoteAPI::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun providesPokeManAPI(retrofitBuilder: Retrofit.Builder, okHttpClient: OkHttpClient): PokeAPI{
+        return retrofitBuilder.client(okHttpClient).build().create(PokeAPI::class.java)
     }
 }

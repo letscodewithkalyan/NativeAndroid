@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.mynotes.R
 import com.example.mynotes.databinding.FragmentPokeManBinding
+import com.example.mynotes.ui.adapters.ImageAdapter
 import com.example.mynotes.utils.NetworkResult
 import com.example.mynotes.viewmodels.PokeManViewModel
 import kotlinx.coroutines.flow.collect
@@ -22,6 +23,7 @@ class PokeManFragment : Fragment() {
 
     private val viewModel by activityViewModels<PokeManViewModel>()
 
+    lateinit var imageAdapter: ImageAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,9 +34,10 @@ class PokeManFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        imageAdapter = ImageAdapter()
         viewModel.getData()
         binding.pokeManList.layoutManager = GridLayoutManager(context, 2)
-
+        binding.pokeManList.adapter = imageAdapter
         bindObservers()
     }
 
@@ -43,7 +46,7 @@ class PokeManFragment : Fragment() {
             viewModel.pokeManResult.collect{
                 when(it){
                     is NetworkResult.Success ->{
-
+                        imageAdapter.updateList(it.data?.results ?: emptyList())
                     }
                     is NetworkResult.Loading ->{
 

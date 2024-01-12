@@ -16,7 +16,8 @@ class PokeRepository @Inject constructor(private val pokeAPI: PokeAPI) {
     private val _pokeManData = MutableStateFlow<NetworkResult<PokeManResult>>(NetworkResult.Loading());
     val pokeManData : StateFlow<NetworkResult<PokeManResult>>
         get() = _pokeManData
-    suspend fun getPokeMan(){
+    suspend fun getPokeMan()
+    {
         val response = pokeAPI.getPokeResult(Constants.POKE_URL)
         if(response.isSuccessful && response.body() != null){
             _pokeManData.value = NetworkResult.Success(response.body()!!)
