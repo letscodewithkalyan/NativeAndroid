@@ -23,5 +23,5 @@ interface NotesDao {
     suspend fun getAllNotes(): List<Notes>
 
     @Query("SELECT * FROM notes_table where id = :id")
-    suspend fun getNoteById(id: Int)
+    suspend fun getNoteById(id: Int) : Notes
 }
