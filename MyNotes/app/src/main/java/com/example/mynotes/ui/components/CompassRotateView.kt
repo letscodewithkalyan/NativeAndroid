@@ -26,7 +26,7 @@ class CompassRotateView : androidx.appcompat.widget.AppCompatImageView{
     var alphaValue = ALPHA_DEFAULT // damping coefficient
     var mB = MB_DEFAULT // magnetic field coefficient
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         if (animationOn) {
             if (angleRecalculate(Date().getTime())) {
                 this.rotation = angle1

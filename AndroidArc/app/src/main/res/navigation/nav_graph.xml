@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/HomeFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.kp.androidarc.presentation.views.LoginFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/HomeFragment"
+        android:name="com.kp.androidarc.presentation.views.HomeFragment"
+        android:label="Home Fragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_NotesFragment"
+            app:destination="@id/NotesFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/NotesFragment"
+        android:name="com.kp.androidarc.presentation.views.NotesFragment"
+        android:label="Notes"
+        tools:layout="@layout/fragment_notes">
+        <action android:id="@+id/action_NotesFragment_to_AddNotesFragment" app:destination="@id/AddNotesFragment"/>
+
+    </fragment>
+    <fragment android:id="@+id/AddNotesFragment"
+        android:name="com.kp.androidarc.presentation.views.AddNotesFragment"
+        android:label="Add Notes"
+        tools:layout="@layout/fragment_add_notes">
+        <argument
+            android:name="note"
+            app:argType="com.kp.androidarc.data.models.NoteModel" />
+    </fragment>
+</navigation>
