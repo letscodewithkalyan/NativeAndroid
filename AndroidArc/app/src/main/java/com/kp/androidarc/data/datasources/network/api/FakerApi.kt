@@ -1,6 +1,6 @@
 package com.kp.androidarc.data.datasources.network.api
 
-import com.kp.androidarc.data.datasources.network.models.UserDataDto
+import com.kp.androidarc.data.datasources.network.dto.UserDataDto
 import retrofit2.http.GET
 import retrofit2.Response
 

@@ -1,10 +1,9 @@
 package com.kp.androidarc.data.repository
 
-import com.kp.androidarc.core.Constants
 import com.kp.androidarc.data.datasources.local.dao.UserDao
 import com.kp.androidarc.data.datasources.network.NetworkResult
 import com.kp.androidarc.data.datasources.network.api.FakerApi
-import com.kp.androidarc.data.datasources.network.models.toDomain
+import com.kp.androidarc.data.datasources.network.dto.toDomain
 import com.kp.androidarc.data.models.UserDataModel
 import org.json.JSONObject
 import javax.inject.Inject

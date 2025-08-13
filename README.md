@@ -1,8 +1,6 @@
-# NativeAndroid
+# MyNotes
 
 Initial Architecture for android app using MVVM, Kotlin, Hilt, Retrofit and Kotlin Coroutines for Dependency Injection
-
-#AndroidArc
 
 # AndroidArc
 
@@ -42,10 +40,3 @@ The project is modular, scalable, and leverages best practices for Android devel
   - ViewModels for business logic
   - Views (Activities, Fragments, UI components)
   - Adapters for lists and other UI bindings
-
-## ⚙️ Setup & Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/AndroidArc.git
-   ```

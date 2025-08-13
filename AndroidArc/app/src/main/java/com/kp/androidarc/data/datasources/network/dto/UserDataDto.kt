@@ -1,4 +1,4 @@
-package com.kp.androidarc.data.datasources.network.models
+package com.kp.androidarc.data.datasources.network.dto
 
 import com.kp.androidarc.data.models.UserDataModel
 

@@ -23,8 +23,8 @@ class NotesViewModel @Inject constructor(val notesDao: NotesDao) : ViewModel() {
             notesDao.getAllNotes()
                 .map { noteList -> noteList.map { it.toModel() } }
                 .collect { notesModel ->
-                _notes.value = notesModel
-            }
+                 _notes.value = notesModel
+             }
         }
     }
 }
