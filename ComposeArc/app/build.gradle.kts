@@ -68,6 +68,9 @@ dependencies {
     implementation(libs.lifecycleRuntime)
     implementation(libs.androidx.navigation.runtime.android)
     implementation(libs.hilt.navigation.compose)
+    implementation(libs.compose.material.icons)
+
+    implementation(libs.coil.compose)
 
     testImplementation(libs.junit)
     testImplementation(libs.mockk)

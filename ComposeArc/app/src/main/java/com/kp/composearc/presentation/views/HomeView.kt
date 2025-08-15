@@ -3,6 +3,7 @@ package com.kp.composearc.presentation.views
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
@@ -16,19 +17,42 @@ import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun HomeView(navController: NavController) {
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .padding(16.dp),
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally) {
-        Button(onClick = { navController.navigate("network") }) {
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Button(
+            onClick = { navController.navigate("network") },
+            modifier = Modifier.fillMaxWidth()
+        ) {
             Text("Network")
         }
-        Button(onClick = { navController.navigate("db") }) {
+        Button(onClick = { navController.navigate("db") }, modifier = Modifier.fillMaxWidth()) {
             Text("db")
         }
-        Button(onClick = {navController.navigate("scaffold")}) {
+        Button(
+            onClick = { navController.navigate("scaffold") },
+            modifier = Modifier.fillMaxWidth()
+        ) {
             Text("Scaffold")
+        }
+        Button(onClick = { navController.navigate("login") }, modifier = Modifier.fillMaxWidth()) {
+            Text("Login")
+        }
+        Button(
+            onClick = { navController.navigate("composecomponents") },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Compose Components")
+        }
+        Button(
+            onClick = {navController.navigate("listview")},
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("ListView")
         }
     }
 }
