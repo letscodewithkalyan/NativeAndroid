@@ -32,7 +32,6 @@ import com.kp.composearc.presentation.components.PasswordTextField
 fun LoginView(navController: NavController) {
     var userName by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-
     Column(
         modifier = Modifier
             .fillMaxSize()

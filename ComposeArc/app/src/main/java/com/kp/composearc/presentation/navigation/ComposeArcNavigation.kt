@@ -4,11 +4,14 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.kp.composearc.data.model.FruitModel
 import com.kp.composearc.data.model.NoteModel
 import com.kp.composearc.presentation.views.AddNotesView
 import com.kp.composearc.presentation.views.ComposeComponents
 import com.kp.composearc.presentation.views.DBView
+import com.kp.composearc.presentation.views.FruitDetailsView
 import com.kp.composearc.presentation.views.HomeView
+import com.kp.composearc.presentation.views.ImageScreen
 import com.kp.composearc.presentation.views.ListViewScreen
 import com.kp.composearc.presentation.views.LoginView
 import com.kp.composearc.presentation.views.NetworkView
@@ -40,7 +43,16 @@ fun ComposeArcNavigation(navController: NavHostController) {
             ComposeComponents()
         }
         composable("listView") {
-            ListViewScreen()
+            ListViewScreen(navController)
+        }
+        composable("image") {
+            ImageScreen()
+        }
+        composable("fruitdetails") {
+            var fruit = navController.previousBackStackEntry?.savedStateHandle?.get<FruitModel>("fruit")
+            if(fruit != null) {
+                FruitDetailsView(fruit)
+            }
         }
     }
 }

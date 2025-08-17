@@ -49,10 +49,13 @@ fun HomeView(navController: NavController) {
             Text("Compose Components")
         }
         Button(
-            onClick = {navController.navigate("listview")},
+            onClick = { navController.navigate("listview") },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("ListView")
+        }
+        Button(onClick = { navController.navigate("image") }, modifier = Modifier.fillMaxWidth()) {
+            Text("Image Screen")
         }
     }
 }
