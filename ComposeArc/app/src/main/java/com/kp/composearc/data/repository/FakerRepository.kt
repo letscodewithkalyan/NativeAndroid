@@ -10,12 +10,13 @@ import org.json.JSONObject
 import javax.inject.Inject
 
 class FakerRepository @Inject constructor(private val fakerApi: FakerApi, private val networkChecker: NetworkChecker) {
-    suspend fun getUsers(): NetworkResult<List<UserModel>> {
+    private val pageSize = 20
+    suspend fun getUsers(page: Int): NetworkResult<List<UserModel>> {
         try {
             if(!networkChecker.isNetworkConnected()){
                 return NetworkResult.Error("No internet connected")
             }
-            val response = fakerApi.getUsers()
+            val response = fakerApi.getUsers(20, page)
             if(response.isSuccessful && response.body() != null){
                 val result = response.body()!!
                 var list = mutableListOf<UserModel>()

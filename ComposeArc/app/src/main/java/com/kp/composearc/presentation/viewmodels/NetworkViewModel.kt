@@ -18,7 +18,7 @@ class NetworkViewModel @Inject constructor(fakerRepository: FakerRepository) : V
     val userData: StateFlow<NetworkResult<List<UserModel>>> = _userData
     init {
         viewModelScope.launch {
-            _userData.value = fakerRepository.getUsers()
+            _userData.value = fakerRepository.getUsers(1)
         }
     }
 }

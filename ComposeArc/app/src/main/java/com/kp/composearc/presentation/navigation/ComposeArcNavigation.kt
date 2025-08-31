@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.kp.composearc.data.model.FruitModel
 import com.kp.composearc.data.model.NoteModel
+import com.kp.composearc.presentation.viewmodels.ThemeMode
 import com.kp.composearc.presentation.views.AddNotesView
 import com.kp.composearc.presentation.views.ComposeComponents
 import com.kp.composearc.presentation.views.DBView
@@ -13,12 +14,14 @@ import com.kp.composearc.presentation.views.FruitDetailsView
 import com.kp.composearc.presentation.views.HomeView
 import com.kp.composearc.presentation.views.ImageScreen
 import com.kp.composearc.presentation.views.ListViewScreen
+import com.kp.composearc.presentation.views.LoadMoreNetworkView
 import com.kp.composearc.presentation.views.LoginView
 import com.kp.composearc.presentation.views.NetworkView
 import com.kp.composearc.presentation.views.ScaffoldView
+import com.kp.composearc.presentation.views.ThemeView
 
 @Composable
-fun ComposeArcNavigation(navController: NavHostController) {
+fun ComposeArcNavigation(navController: NavHostController, onThemeChange: (ThemeMode) -> Unit) {
     NavHost(navController = navController, startDestination = "home"){
         composable("home") {
             HomeView(navController)
@@ -53,6 +56,12 @@ fun ComposeArcNavigation(navController: NavHostController) {
             if(fruit != null) {
                 FruitDetailsView(fruit)
             }
+        }
+        composable("theme") {
+            ThemeView(onThemeChange)
+        }
+        composable("loadmorenetwork") {
+            LoadMoreNetworkView()
         }
     }
 }

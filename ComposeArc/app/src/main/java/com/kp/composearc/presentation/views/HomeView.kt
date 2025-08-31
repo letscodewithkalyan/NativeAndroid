@@ -57,6 +57,13 @@ fun HomeView(navController: NavController) {
         Button(onClick = { navController.navigate("image") }, modifier = Modifier.fillMaxWidth()) {
             Text("Image Screen")
         }
+        Button(onClick = { navController.navigate("theme") }, modifier = Modifier.fillMaxWidth()) {
+            Text("Theme View")
+        }
+        Button(onClick = {navController.navigate("loadmorenetwork")}, modifier = Modifier.fillMaxWidth()) {
+            Text("Load More")
+        }
+
     }
 }
 
