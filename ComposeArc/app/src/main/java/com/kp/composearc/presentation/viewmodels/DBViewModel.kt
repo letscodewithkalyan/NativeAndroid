@@ -1,5 +1,6 @@
 package com.kp.composearc.presentation.viewmodels
 
+import android.health.connect.datatypes.units.Length
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kp.composearc.data.datasources.local.dao.NotesDao
@@ -14,18 +15,20 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DBViewModel @Inject constructor(private val notesDao: NotesDao) : ViewModel() {
-    private val _notes: MutableStateFlow<List<NoteModel>> = MutableStateFlow<List<NoteModel>>(emptyList())
+    private val _notes: MutableStateFlow<List<NoteModel>> =
+        MutableStateFlow<List<NoteModel>>(emptyList())
     val notes: StateFlow<List<NoteModel>> = _notes
 
     init {
-       viewModelScope.launch {
-           notesDao.getAllNotes()
-               .map { noteList -> noteList.map { it.toModel() } }
-               .collect { notes ->
-                   _notes.value = notes
-               }
-       }
+        viewModelScope.launch {
+            notesDao.getAllNotes()
+                .map { noteList -> noteList.map { it.toModel() } }
+                .collect { notes ->
+                    _notes.value = notes
+                }
+
+        }
+
+
     }
-
-
 }

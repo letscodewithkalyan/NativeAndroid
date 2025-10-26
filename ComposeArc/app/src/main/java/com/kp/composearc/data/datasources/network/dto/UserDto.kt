@@ -1,6 +1,9 @@
 package com.kp.composearc.data.datasources.network.dto
 
+import com.squareup.moshi.JsonClass
 
+
+@JsonClass(generateAdapter = true)
 data class UserDto(
     val status: String,
     val code: Long,
@@ -10,6 +13,7 @@ data class UserDto(
     val data: List<DataDto>,
 )
 
+@JsonClass(generateAdapter = true)
 data class DataDto(
     val id: Long,
     val uuid: String,

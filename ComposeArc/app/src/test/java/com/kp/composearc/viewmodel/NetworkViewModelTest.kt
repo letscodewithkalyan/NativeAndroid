@@ -32,8 +32,9 @@ class NetworkViewModelTest {
             listOf(UserModel(123L, "test", "test", "test", "test", "test", "test", "test"))
         val expectedResult = NetworkResult.Success(fakeUsers)
 
-        coEvery { fakerRepository.getUsers() } returns expectedResult
-
+        //coEvery for suspend functions, co means corountines
+        //every for the normal functions
+        coEvery { fakerRepository.getUsers(1) } returns expectedResult
         //Act
         val viewModel = NetworkViewModel(fakerRepository)
         advanceUntilIdle() // Let init{} coroutine finish
@@ -43,15 +44,15 @@ class NetworkViewModelTest {
     }
 }
 
-class MainCoroutineRule(val dispatcher : TestDispatcher = StandardTestDispatcher()) : TestWatcher() {
-    private val testDispatcher = StandardTestDispatcher()
 
+
+class MainCoroutineRule(private val testDispatcher: TestDispatcher =  StandardTestDispatcher()) : TestWatcher(){
     override fun starting(description: Description?) {
         super.starting(description)
         Dispatchers.setMain(testDispatcher)
     }
 
-    override fun succeeded(description: Description?) {
+    override fun finished(description: Description?) {
         super.succeeded(description)
         Dispatchers.resetMain()
     }

@@ -1,6 +1,5 @@
 package com.kp.composearc.data.repository
 
-import com.google.gson.Gson
 import com.kp.composearc.core.NetworkChecker
 import com.kp.composearc.data.datasources.network.NetworkResult
 import com.kp.composearc.data.datasources.network.api.FakerApi

@@ -57,7 +57,9 @@ dependencies {
     ksp(libs.hiltCompiler)
 
     implementation(libs.retrofit)
-    implementation(libs.converterGson)
+    implementation(libs.retrofit.moshi)
+    implementation(libs.moshi.kotlin)
+    ksp(libs.moshi.kotlin.codegen)
 
     //Room
     implementation(libs.room.runtime)
@@ -66,7 +68,6 @@ dependencies {
 
     implementation(libs.lifecycleViewModel)
     implementation(libs.lifecycleRuntime)
-    implementation(libs.androidx.navigation.runtime.android)
     implementation(libs.hilt.navigation.compose)
     implementation(libs.compose.material.icons)
 
@@ -82,5 +83,6 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    debugImplementation(libs.leakcanary.android)
     testImplementation(kotlin("test"))
 }
