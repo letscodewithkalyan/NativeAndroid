@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 fun AppAlertDialog(
     title: String,
     message: String,
+    onDismissRequest: () -> Unit,
     confirmButtonText: String = "OK",
     dismissButtonText: String? = null,
 ) {
@@ -15,17 +16,17 @@ fun AppAlertDialog(
         title = { Text(title) },
         text = { Text(message) },
         confirmButton = {
-            TextButton(onClick = {  }) {
+            TextButton(onClick = { onDismissRequest?.invoke() }) {
                 Text(confirmButtonText)
             }
         },
         dismissButton = {
             dismissButtonText?.let {
-                TextButton(onClick = {  }) {
+                TextButton(onClick = { }) {
                     Text(it)
                 }
             }
         },
-        onDismissRequest = {  },
+        onDismissRequest = { onDismissRequest?.invoke() },
     )
 }

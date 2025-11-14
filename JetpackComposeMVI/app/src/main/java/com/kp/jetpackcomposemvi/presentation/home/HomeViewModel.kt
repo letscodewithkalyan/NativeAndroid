@@ -27,7 +27,11 @@ class HomeViewModel @Inject constructor(private val dataRepository: DataReposito
 
     fun handleIntent(intent: HomeViewContract.Intent) {
         when (intent) {
-            is HomeViewContract.Intent.OnListItemClick -> TODO()
+            is HomeViewContract.Intent.OnListItemClick -> {
+                viewModelScope.launch {
+                    effect.emit(HomeViewContract.Effect.ShowDialog(intent.userModel.username))
+                }
+            }
             HomeViewContract.Intent.OnRefresh -> {
                 state = state.copy(isRefreshing = true)
                 loadUsers()
